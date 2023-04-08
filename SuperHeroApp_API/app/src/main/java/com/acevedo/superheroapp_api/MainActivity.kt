@@ -9,6 +9,7 @@ import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.acevedo.superheroapp_api.DetailSuperHeroActivity.Companion.EXTRA_ID
 import com.acevedo.superheroapp_api.databinding.ActivityMainBinding
+import com.acevedo.superheroapp_api.settings.SettingsActivity
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -19,7 +20,6 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var binding:ActivityMainBinding // sirve para crear variable, iniciar la varibale, buscar la variable con el xml, ahora puedes acceder rápido
     private lateinit var retrofit: Retrofit
-
     private lateinit var adapter: SuperHeroAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -48,7 +48,13 @@ class MainActivity : AppCompatActivity() {
         binding.rvSuperHero.setHasFixedSize(true)
         binding.rvSuperHero.layoutManager = LinearLayoutManager(this)
         binding.rvSuperHero.adapter = adapter
+        binding.fabSettings.setOnClickListener { navigateToSettings() }
 
+    }
+
+    private fun navigateToSettings() {
+        val intent = Intent(this, SettingsActivity::class.java)
+        startActivity(intent)
     }
 
     private fun searchByName(query: String) {
