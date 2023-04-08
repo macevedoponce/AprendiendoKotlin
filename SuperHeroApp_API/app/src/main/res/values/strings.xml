@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">SuperHeroApp_API</string>
+
+    <string name="intelligence">intelligence</string>
+    <string name="strength">strength</string>
+    <string name="speed">speed</string>
+    <string name="durability">durability</string>
+    <string name="power">power</string>
+    <string name="combat">combat</string>
+
+
+</resources>
